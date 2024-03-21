@@ -1,12 +1,23 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:octopus/octopus.dart';
 import 'package:provider/provider.dart';
-import 'package:web_app/components/sert_cabinet/model/user_notifier.dart';
+import 'package:web_app/components/partner/model/partner_notifier.dart';
+import 'package:web_app/components/sertificate/model/user_notifier.dart';
 import 'package:web_app/common/vars.dart';
+import 'package:web_app/firebase_options.dart';
 import 'package:web_app/routes.dart';
 import 'package:flutter/material.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+  FirebaseFirestore.instance.settings = const Settings(
+    persistenceEnabled: true,
+  );
 
   runApp(MyApp());
 }
@@ -32,6 +43,8 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider<UserNotifier>(
           create: (_) => UserNotifier(),
         ),
+        ChangeNotifierProvider<PartnerNotifier>(
+            create: (_) => PartnerNotifier()),
       ],
 
       ///

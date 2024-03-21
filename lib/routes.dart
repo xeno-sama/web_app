@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:octopus/octopus.dart';
-import 'package:web_app/components/admin_page.dart';
-import 'package:web_app/components/home_page.dart';
-import 'package:web_app/components/sert_cabinet/enter_lk.dart';
-import 'package:web_app/components/sert_cabinet/enter_sert.dart';
-import 'package:web_app/components/sert_cabinet/enter_sms.dart';
-import 'package:web_app/components/sert_cabinet/input_contacts.dart';
-import 'package:web_app/components/partner_page.dart';
-import 'package:web_app/components/sert_page.dart';
+import 'package:web_app/components/admin/admin_page.dart';
+import 'package:web_app/components/partner/partner_add_brand.dart';
+import 'package:web_app/components/partner/partner_main.dart';
+import 'package:web_app/home_page.dart';
+import 'package:web_app/components/sertificate/login_lk.dart';
+import 'package:web_app/components/sertificate/enter_code_sert.dart';
+import 'package:web_app/components/sertificate/enter_sms.dart';
+import 'package:web_app/components/sertificate/input_contacts.dart';
+import 'package:web_app/components/partner/partner_login.dart';
+import 'package:web_app/components/sertificate/sert_page.dart';
 
 enum Routes with OctopusRoute {
   home('home', title: 'Home'),
@@ -20,8 +22,12 @@ enum Routes with OctopusRoute {
   enterSMS('enterSMS', title: 'EnterSMS'),
   enterSertificate('enterSertificate', title: 'EnterSertificate'),
 
-  ///
-  partner('partner', title: 'Partner'),
+  /// Кабинет Партнера
+  partnerLogin('partner', title: 'Partner'),
+  partnerMain('partnerMain', title: 'PartnerMain'),
+  partnerAddBrand('partnerAddBrand', title: 'PartnerAddBrand'),
+
+  /// Админка
   admin('admin', title: 'Admin'),
   ;
 
@@ -46,7 +52,11 @@ enum Routes with OctopusRoute {
         Routes.enterSertificate => const EnterSertificate(),
 
         ///
-        Routes.partner => const PartnerPage(),
+        Routes.partnerLogin => const PartnerLogin(),
+        Routes.partnerMain => const PartnerMain(),
+        Routes.partnerAddBrand => const PartnerAddBrand(),
+
+        ///
         Routes.admin => const AdminPage(),
       };
 }
