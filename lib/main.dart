@@ -7,7 +7,6 @@ import 'package:flutter/material.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  // DB.realm = await openRealm();
 
   runApp(MyApp());
 }
